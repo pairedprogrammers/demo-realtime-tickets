@@ -11,32 +11,43 @@
     <link rel="stylesheet" href="css/styles.css"/>
 
 </head>
-<body>
+<body ng-app="realtimeData">
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <a class="navbar-brand" href="#">Realtime Data</a>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Dsahboard</a></li>
+            <li class="active"><a href="#">Dashboard</a></li>
             <li><a href="#">Create New Ticket</a></li>
         </ul>
     </div>
 </nav>
 
-<div class="container">
-
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
-            mostly barebones HTML document.</p>
-    </div>
-
+<div class="container" ng-controller="TicketController">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Severity</th>
+            <th>Requester</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="ticket in tickets">
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.title}}</td>
+            <td>{{ticket.severity}}</td>
+            <td>{{ticket.requester}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <!-- /.container -->
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="js/app.js"></script>
+
 
 </body>
 </html>
