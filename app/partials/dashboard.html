@@ -1,18 +1,6 @@
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Severity</th>
-        <th>Requester</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="ticket in tickets">
-        <td>{{ticket.id}}</td>
-        <td>{{ticket.title}}</td>
-        <td>{{ticket.severity}}</td>
-        <td>{{ticket.requester}}</td>
-    </tr>
-    </tbody>
-</table>
+<div class="list-group">
+    <a href="#" class="list-group-item" ng-repeat="ticket in tickets">
+        <h4 class="list-group-item-heading">{{ticket.title}}</h4>
+        <p class="list-group-item-text">{{ticket.desc}}</p>
+    </a>
+</div>

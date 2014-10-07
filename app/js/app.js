@@ -1,13 +1,8 @@
 angular.module('realtimeData', ['ngRoute'])
-    .controller('DashboardCtrl', ['$scope', function ($scope) {
+    .controller('DashboardCtrl', ['$scope', 'TicketService', function ($scope, TicketService) {
         "use strict";
 
-        $scope.tickets = [
-            {'id': 1, 'title': 'The network is down!', 'severity': 'Critical', 'requester': 'The President'},
-            {'id': 2, 'title': 'I lost my pen', 'severity': 'low', 'requester': 'Some Guy'},
-            {'id': 3, 'title': 'PC Load Letter', 'severity': 'Critical', 'requester': 'Bolton'},
-            {'id': 4, 'title': 'My account is locked', 'severity': 'low', 'requester': 'User A'}
-        ];
+        $scope.tickets = TicketService;
     }])
     .controller('EditCtrl', ['$scope', function ($scope) {
         "use strict";
@@ -41,7 +36,12 @@ angular.module('realtimeData', ['ngRoute'])
     .service('TicketService', function () {
         "use strict";
 
-        var tickets = [];
+        var tickets =  [
+            {'id': 1, 'title': 'The network is down!', 'desc': 'The network is down and I cannot perform my work', 'severity': 'Critical'},
+            {'id': 2, 'title': 'I lost my pen', 'desc': 'I was near my cube when I noticed that my pen was gone!  Someone must have taken it.',  'severity': 'low'},
+            {'id': 3, 'title': 'PC Load Letter', 'desc': 'I wish I knew what it meant, but the printer is not working.',  'severity': 'Critical'},
+            {'id': 4, 'title': 'My account is locked', 'desc': 'I know that my password was correct even though it failed.  So I kept trying.  Only about 50 times.',  'severity': 'low'}
+        ];
 
         return tickets;
     });
