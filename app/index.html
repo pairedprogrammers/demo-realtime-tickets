@@ -16,36 +16,19 @@
     <div class="container">
         <a class="navbar-brand" href="#">Realtime Data</a>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Dashboard</a></li>
-            <li><a href="#">Create New Ticket</a></li>
+            <li class="active"><a ng-href="#">Dashboard</a></li>
+            <li><a ng-href="#/new">Create New Ticket</a></li>
         </ul>
     </div>
 </nav>
 
-<div class="container" ng-controller="TicketController">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>Severity</th>
-            <th>Requester</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="ticket in tickets">
-            <td>{{ticket.id}}</td>
-            <td>{{ticket.title}}</td>
-            <td>{{ticket.severity}}</td>
-            <td>{{ticket.requester}}</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div ng-view></div>
 </div>
-<!-- /.container -->
 
 
 <script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
 <script src="js/app.js"></script>
 
 

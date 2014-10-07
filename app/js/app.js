@@ -1,5 +1,5 @@
-angular.module('realtimeData', [])
-    .controller('TicketController', ['$scope', function ($scope) {
+angular.module('realtimeData', ['ngRoute'])
+    .controller('DashboardCtrl', ['$scope', function ($scope) {
         "use strict";
 
         $scope.tickets = [
@@ -8,6 +8,35 @@ angular.module('realtimeData', [])
             {'id': 3, 'title': 'PC Load Letter', 'severity': 'Critical', 'requester': 'Bolton'},
             {'id': 4, 'title': 'My account is locked', 'severity': 'low', 'requester': 'User A'}
         ];
+    }])
+    .controller('EditCtrl', ['$scope', function ($scope) {
+        "use strict";
+
+
+    }])
+    .controller('CreateCtrl', ['$scope', function ($scope) {
+        "use strict";
+
+
+    }])
+    .config( ['$routeProvider', function($routeProvider){
+        "use strict";
+        $routeProvider
+            .when('/', {
+                controller:'DashboardCtrl',
+                templateUrl:'partials/dashboard.html'
+            })
+            .when('/edit/:ticketId', {
+                controller:'EditCtrl',
+                templateUrl:'partials/ticket.html'
+            })
+            .when('/new', {
+                controller:'CreateCtrl',
+                templateUrl:'partials/ticket.html'
+            })
+            .otherwise({
+                redirectTo:'/'
+            });
     }])
     .service('TicketService', function () {
         "use strict";
