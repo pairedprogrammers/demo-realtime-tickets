@@ -7,12 +7,11 @@ app.use('/bower_components', express.static('../bower_components/'));
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-var bodyParser = require('body-parser')
-var jsonParser = bodyParser.json()
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-var tickets = 
-    [
+var tickets = [
         {
             'title': 'The network is down!',
             'desc': 'The network is down and I cannot perform my work'
@@ -31,13 +30,17 @@ var tickets =
         }
     ];
 
-app.get('/tickets', function(req, res) {
+app.get('/tickets', function (req, res) {
+    'use strict';
+    
     res.send(tickets);
 });
 
 app.post('/tickets', jsonParser, function (req, res) {
+    'use strict';
+    
     if (!req.body) {
-        return res.sendStatus(400)
+        return res.sendStatus(400);
     }
     tickets.push(req.body);
 
@@ -45,5 +48,6 @@ app.post('/tickets', jsonParser, function (req, res) {
     return res.sendStatus(200);
 });
 
-http.listen(3000, function(){
+http.listen(3000, function () {
+    'use strict';
 });
