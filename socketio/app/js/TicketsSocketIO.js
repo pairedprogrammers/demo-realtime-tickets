@@ -15,7 +15,7 @@ angular.module('realtimeData.data', ['ngResource']).factory('Tickets', ['$resour
             server.save(newTicket);
         },
         
-        query: function (callback) {
+        query: function () {
             return server.query();
         }
     };

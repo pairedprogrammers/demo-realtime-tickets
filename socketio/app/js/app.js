@@ -3,6 +3,7 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
         'use strict';
         
         $scope.tickets = Tickets.query();
+        
         socketio.on('ticket', function (msg) {
             $scope.tickets.push(msg);
         });
