@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/pairedprogrammers/demo-realtime-tickets/issues"
   },
-  "homepage": "https://github.com/pairedprogrammers/demo-realtime-tickets"
+  "homepage": "https://github.com/pairedprogrammers/demo-realtime-tickets",
+  "dependencies": {
+    "express": "^4.9.8",
+    "socket.io": "^1.1.0"
+  }
 }

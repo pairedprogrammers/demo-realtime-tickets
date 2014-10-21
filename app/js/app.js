@@ -1,6 +1,7 @@
 angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
     .controller('DashboardCtrl', ['$scope', 'Tickets', function ($scope, Tickets) {
         "use strict";
+        
         $scope.tickets = Tickets.query();
 
     }])
