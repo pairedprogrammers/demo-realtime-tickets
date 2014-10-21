@@ -1,0 +1,24 @@
+﻿@section body{
+
+    <div class="container demoContainer">
+        <div class="header">
+            <h3 class="text-muted">Realtime Data Demo</h3>
+        </div>
+        <div ng-view></div>
+    </div>
+
+}
+
+
+
+@section scripts
+{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-resource.js"></script>
+
+
+    <script src="~/app/app.js"></script>
+    <script src="~/app/TicketSignalR.js"></script>
+
+}

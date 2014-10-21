@@ -1,0 +1,9 @@
+<a ng-href="#/new">New Ticket</a>
+<div class="list-group">
+
+    <div class="list-group-item" ng-repeat="ticket in tickets | reverse">
+        <h4 class="list-group-item-heading">{{ticket.title}}</h4>
+
+        <p class="list-group-item-text">{{ticket.desc}}</p>
+    </div>
+</div>
