@@ -3,7 +3,11 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
         "use strict";
         
         $scope.tickets = Tickets.query();
-
+        var socket = io();
+        socket.on('ticket', function(msg) {
+            $scope.tickets.push(msg);
+            $scope.$digest();
+        });
     }])
     .controller('CreateCtrl', ['$scope', '$location', 'Tickets' , function ($scope, $location, Tickets) {
         "use strict";

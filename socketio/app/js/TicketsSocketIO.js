@@ -12,7 +12,8 @@ angular.module('realtimeData.data', ['ngResource']).factory('Tickets', ['$resour
     
     return {
         save: function(newTicket) {
-            socket.emit('ticket', newTicket);
+            //socket.emit('ticket', newTicket);
+            server.save(newTicket);
         },
         
         query: function(callback) {
