@@ -1,15 +1,13 @@
 'use strict';
 
-angular.module('realtimeData.data', ['ngResource']).factory('Tickets', ['$resource', function ($resource) {
-    
+angular.module('realtimeData.data', ['ngResource']).factory('Tickets', ['$resource', function ($resource) {  
     var server = $resource('/api/tickets');
 
     var tickets = [];
 
-
     return {
         save: function (newTicket) {
-            socket.emit('ticket', newTicket);
+            server.save(newTicket);
         },
 
         query: function (callback) {

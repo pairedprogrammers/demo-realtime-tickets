@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using SignalR.Web.Models;
+using SignalR.Web.hubs;
+using Microsoft.AspNet.SignalR;
 
 namespace SignalR.Web.Controllers
 {
@@ -20,8 +22,13 @@ namespace SignalR.Web.Controllers
         }       
 
         // POST: api/Tickets
-        public void Post([FromBody]Ticket value)
+        public void Post([FromBody]Ticket ticket)
         {
+            var ticketHub =  GlobalHost.ConnectionManager.GetHubContext<TicketHub>();
+            
+            ticketHub.Clients.All.addNewTicket(ticket);
+  
+
         }
 
       

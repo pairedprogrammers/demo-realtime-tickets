@@ -11,3 +11,4 @@
 /// <reference path="../app/app.js" />
 /// <reference path="../app/tickets.js" />
 /// <reference path="../app/ticketsignalr.js" />
+/// <reference path="jquery.signalr-2.1.2.min.js" />
