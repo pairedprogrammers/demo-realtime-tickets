@@ -10,7 +10,7 @@ namespace SignalR.Web.hubs
     public class TicketHub : Microsoft.AspNet.SignalR.Hub
     {
         public void Send(Ticket ticket)
-        {
+        {            
             Clients.All.addNewTicket(ticket);
         }
 
