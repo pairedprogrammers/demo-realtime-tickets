@@ -12,25 +12,30 @@ namespace SignalR.Web.Controllers
 {
     public class TicketsController : ApiController
     {
+        private ITicketRepository _repository;
+
+        public TicketsController(ITicketRepository repository)
+        {
+            if (repository == null) throw new ArgumentNullException("repository");
+            _repository = repository;
+        }
+
         // GET: api/Tickets
         public IEnumerable<Ticket> Get()
         {
-            return new List<Ticket>() {
-                new Ticket("sample", "sample desc"),
-                new Ticket("sample 2", "sample desc 2")
-            };
-        }       
+            return _repository.GetTickets();
+        }
 
         // POST: api/Tickets
         public void Post([FromBody]Ticket ticket)
         {
-            var ticketHub =  GlobalHost.ConnectionManager.GetHubContext<TicketHub>();
+            //var ticketHub =  GlobalHost.ConnectionManager.GetHubContext<TicketHub>();
+            //ticketHub.Clients.All.addNewTicket(ticket);
             
-            ticketHub.Clients.All.addNewTicket(ticket);
-  
+            _repository.AddTicket(ticket);
 
         }
 
-      
+
     }
 }

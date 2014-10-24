@@ -1,12 +1,12 @@
 angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
     .controller('DashboardCtrl', ['$scope', 'Tickets', function ($scope, Tickets) {
         "use strict";
-        
+
         $scope.tickets = Tickets.query();
 
         var ticketHub = $.connection.ticketHub;
         // Create a function that the hub can call back to display messages.
-        ticketHub.client.addNewTicket = function (ticket) {        
+        ticketHub.client.addNewTicket = function (ticket) {
             $scope.tickets.push(ticket);
             $scope.$apply();
         };
@@ -16,7 +16,7 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
         });
 
     }])
-    .controller('CreateCtrl', ['$scope', '$location', 'Tickets' , function ($scope, $location, Tickets) {
+    .controller('CreateCtrl', ['$scope', '$location', 'Tickets', function ($scope, $location, Tickets) {
         "use strict";
 
         $scope.save = function (newTicket) {
@@ -24,8 +24,7 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
             $location.path('/');
         };
 
-
-        $scope.cancel = function(){
+        $scope.cancel = function () {
             $location.path('/');
         }
 
@@ -45,8 +44,8 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
                 redirectTo: '/'
             });
     }])
-    .filter('reverse', function() {
-        return function(items) {
+    .filter('reverse', function () {
+        return function (items) {
             return items.slice().reverse();
         };
     });

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LightInject;
+using LightInject.WebApi;
+using SignalR.Web.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +21,10 @@ namespace SignalR.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            DependencyConfig.Register(GlobalConfiguration.Configuration);
+
+
         }
     }
 }
