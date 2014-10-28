@@ -20,8 +20,9 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
         "use strict";
 
         $scope.save = function (newTicket) {
-            Tickets.save(newTicket);
-            $location.path('/');
+            Tickets.save(newTicket, function(){
+                $location.path('/');
+            });            
         };
 
         $scope.cancel = function () {
