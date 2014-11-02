@@ -28,8 +28,12 @@ namespace SignalR.Web.Controllers
 
         // POST: api/Tickets
         public void Post([FromBody]Ticket ticket)
-        {                    
+        {                                
             _repository.AddTicket(ticket);
+            
+            var _context =   GlobalHost.ConnectionManager.GetHubContext<TicketHub>();            
+            _context.Clients.All.addNewTicket(ticket);
+
         }
 
 

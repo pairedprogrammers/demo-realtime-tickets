@@ -1,18 +1,11 @@
 angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
-    .controller('DashboardCtrl', ['$scope', 'Tickets', function ($scope, Tickets) {
+    .controller('DashboardCtrl', ['$scope', 'Tickets', 'TicketStream', function ($scope, Tickets, TicketStream) {
         "use strict";
 
         $scope.tickets = Tickets.query();
 
-        var ticketHub = $.connection.ticketHub;
-        // Create a function that the hub can call back to display messages.
-        ticketHub.client.addNewTicket = function (ticket) {
-            $scope.tickets.push(ticket);
-            $scope.$apply();
-        };
-
-        // Start the connection.
-        $.connection.hub.start().done(function () {
+        TicketStream.on('addNewTicket', function (newTicket) {
+            $scope.tickets.push(newTicket);
         });
 
     }])

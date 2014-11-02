@@ -13,11 +13,8 @@ namespace SignalR.Web.App_Start
         public static void Register(HttpConfiguration configuration)
         {
             var container = new ServiceContainer();
-            container.RegisterApiControllers();
-            //register other services    
-
+            container.RegisterApiControllers();           
             container.Register<ITicketRepository, TicketRepository>(new PerContainerLifetime());
-
             container.EnableWebApi(configuration);
         }
 

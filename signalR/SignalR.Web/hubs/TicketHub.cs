@@ -7,12 +7,9 @@ using SignalR.Web.Models;
 
 namespace SignalR.Web.hubs
 {
+    [HubName("ticketHub")]
     public class TicketHub : Microsoft.AspNet.SignalR.Hub
     {
-        public void Send(Ticket ticket)
-        {            
-            Clients.All.addNewTicket(ticket);
-        }
 
     }
 }
