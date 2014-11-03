@@ -13,7 +13,7 @@ angular.module('realtimeData.data', ['ngResource'])
                 var connection = $.hubConnection();
                 var ticketHubProxy = connection.createHubProxy('ticketHub');
               
-                ticketHubProxy.on(eventName, function (ticket) {                  
+                ticketHubProxy.on(eventName, function () {                  
                     var args = arguments;
                     $rootScope.$apply(function () {
                         callback.apply(ticketHubProxy, args);
