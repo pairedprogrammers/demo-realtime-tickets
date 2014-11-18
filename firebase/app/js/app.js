@@ -3,6 +3,11 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
         'use strict';
 
         $scope.tickets = Tickets;
+
+        $scope.delete = function (ticket) {
+            Tickets.$remove(ticket);
+        };
+
     }])
     .controller('CreateCtrl', ['$scope', '$location', 'Tickets', function ($scope, $location, Tickets) {
         'use strict';
@@ -11,6 +16,9 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
             Tickets.$add(newTicket);
             $location.path('/');
         };
+
+
+
 
         $scope.cancel = function () {
             $location.path('/');
