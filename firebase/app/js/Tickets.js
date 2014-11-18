@@ -1,15 +1,8 @@
-angular.module('realtimeData.data', ['ngResource']).factory('Tickets', ['$resource', function($resource) {
-    'use strict';
-    
-    var server = $resource('/tickets');
-    
-    return {
-        save: function (newTicket) {
-            server.save(newTicket);
-        },
-        
-        query: function () {
-            return server.query();
-        }
-    };
-}]);
+angular.module('realtimeData.data', ['firebase'])
+    .factory('Tickets', ['$firebase',  function ($firebase) {
+        'use strict';
+
+        var ref = new Firebase('https://realtime-data-demo.firebaseio.com');
+        return $firebase(ref).$asArray();
+
+    }]);

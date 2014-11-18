@@ -1,24 +1,16 @@
-angular.module('realtimeData', ['ngRoute', 'realtimeData.data', 'firebase'])
-    .controller('DashboardCtrl', ['$scope', 'Tickets', 'socketio', '$firebase', function ($scope, Tickets, socketio, $firebase) {
+angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
+    .controller('DashboardCtrl', ['$scope', 'Tickets', function ($scope, Tickets) {
         'use strict';
-        
-        /*$scope.tickets = Tickets.query();
-        
-        socketio.on('ticket', function (msg) {
-            $scope.tickets.push(msg);
-        });*/
-        
-        var ref = new Firebase('https://pairedprogrammers.firebaseio.com/tickets');
-        $scope.tickets = $firebase(ref);
+
+        $scope.tickets = Tickets;
     }])
     .controller('CreateCtrl', ['$scope', '$location', 'Tickets', function ($scope, $location, Tickets) {
         'use strict';
 
         $scope.save = function (newTicket) {
-            Tickets.save(newTicket);
+            Tickets.$add(newTicket);
             $location.path('/');
         };
-
 
         $scope.cancel = function () {
             $location.path('/');
@@ -47,30 +39,4 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data', 'firebase'])
         return function (items) {
             return items.slice().reverse();
         };
-    })
-    // From http://briantford.com/blog/angular-socket-io
-    .factory('socketio', ['$rootScope', function ($rootScope) {
-        'use strict';
-        
-        var socket = io.connect();
-        return {
-            on: function (eventName, callback) {
-                socket.on(eventName, function () {
-                    var args = arguments;
-                    $rootScope.$apply(function () {
-                        callback.apply(socket, args);
-                    });
-                });
-            },
-            emit: function (eventName, data, callback) {
-                socket.emit(eventName, data, function () {
-                    var args = arguments;
-                    $rootScope.$apply(function () {
-                        if (callback) {
-                            callback.apply(socket, args);
-                        }
-                    });
-                });
-            }
-        };
-    }]);
+    });
