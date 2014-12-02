@@ -1,0 +1,16 @@
+.header {
+    border-bottom: solid 1px #cccccc;
+    margin-bottom: 20px;
+
+}
+
+a.brand{
+
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+    .demoContainer {
+        max-width: 730px;
+    }
+}
