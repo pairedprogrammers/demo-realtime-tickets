@@ -9,5 +9,8 @@ Here you'll find the corresponding source for the tutorial videos by the Paired 
   <li>firebase: <a href="https://www.youtube.com/watch?v=krUKkSFgadU">https://www.youtube.com/watch?v=krUKkSFgadU</a></li>
 </ul>
 
-<h1><a href="https://www.youtube.com/channel/UCyFgdOQhteO_EWAQKh7zOvA">Subscribe to the Paired Programmers on YouTube</a></h1>
-<h1><a href="https://twitter.com/PairedPrgmrs">Follow the Paired Programmers on Twitter</a></h1>
+<h1>Follow the Paired Programmers</h1>
+<ul>
+  <li><a href="https://www.youtube.com/channel/UCyFgdOQhteO_EWAQKh7zOvA">Subscribe to the Paired Programmers on YouTube</a></li>
+  <li><a href="https://twitter.com/PairedPrgmrs">Follow the Paired Programmers on Twitter</a></li>
+</ul>
