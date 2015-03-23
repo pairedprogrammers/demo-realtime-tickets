@@ -1,0 +1,20 @@
+{
+  "name": "demo-realtime-tickets",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pairedprogrammers/demo-realtime-tickets",
+  "authors": [
+    "Paul Welden <paul.j.welden@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "react": "~0.13.1"
+  }
+}
